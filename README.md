@@ -46,8 +46,21 @@ It can be done in Android Studio > Virtual Device Manager > Create Virtual Devic
 
 https://developer.android.com/studio/run/managing-avds
 
+### Setup emulated device
+You'll need to boot up your emulated device (you might need to update **deviceName** in **test_utils/capabilities.py** depending on created emulated device name by listing:
+```
+adb devices -l
+```
+
+Install Mentortools Academy from Play Store.
+
 ## Usage
-After setting everything up, tests can be run from home directory via CMD:
+Fist, you'll need to run your Appium server:
+```
+appium
+```
+
+After setting & starting everything up, tests can be run from home directory via CMD:
 ```
  pytest -v tests/ --email <email_account> --password <email_password>
 ```
