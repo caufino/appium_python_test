@@ -70,3 +70,16 @@ It expects two input parameters:
  -  --password
 
 to test actual login into the app, so don't forget to pass working account, otherwise tests will fail!
+
+### What do the tests actually test?
+This is a simple example of Login automation.
+
+App is opened inside emulator and 4 different scenarios are checked:
+- Try to login with both wrong email and password
+- Try to login with correct email but wrong password
+- Try to login with wrong email but correct password
+- Try to login with both correct email and password
+
+For each test depending if Login fails or passes tests checks for desired output:
+- If login fails, we check for error message
+- If login succeeds, we check that no error message is displayed and we landed correctly on a dashboard
