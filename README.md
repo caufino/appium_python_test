@@ -62,23 +62,28 @@ appium
 
 After setting & starting everything up, tests can be run from home directory via CMD:
 ```
- pytest -v tests/ --email <email_account> --password <email_password>
+ pytest tests/ --email <email_account> --password <email_password>
 ```
 
 It expects two input parameters:
  -  --email
  -  --password
 
-to test actual login into the app, so don't forget to pass working account, otherwise tests will fail!
+to test actual login into the app, so don't forget to pass working account, **otherwise tests won't check actual login!**
+
+This option also generates screenshot, videos and test output in their respected folders:
+- screenshots/
+- videos/
+- html_report/report.html
 
 ### What do the tests actually test?
 This is a simple example of Login automation.
 
 App is opened inside emulator and 4 different scenarios are checked:
 - Try to login with both wrong email and password
+- Try to login with both correct email and password
 - Try to login with correct email but wrong password
 - Try to login with wrong email but correct password
-- Try to login with both correct email and password
 
 For each test depending if Login fails or passes tests checks for desired output:
 - If login fails, we check for error message
