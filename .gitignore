@@ -134,3 +134,4 @@ dmypy.json
 # Ignore artifacts
 screenshots/
 videos/
+html_report/

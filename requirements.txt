@@ -1,3 +1,5 @@
 appium-python-client
 pytest
 selenium
+pytest-reporter-html1
+pytest-rerunfailures
