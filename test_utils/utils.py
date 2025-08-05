@@ -1,4 +1,3 @@
-from appium.webdriver.common.appiumby import AppiumBy
 from selenium.common.exceptions import NoSuchElementException
 from test_utils.logger import logger
 

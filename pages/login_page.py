@@ -1,11 +1,7 @@
-import logging
-
-import pytest
 from appium.webdriver.common.appiumby import AppiumBy
 from selenium.common import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from test_utils.utils import are_elements_displayed
 from test_utils.logger import logger
 
 
@@ -44,20 +40,3 @@ class LoginPage:
                 raise
             else:
                 return False
-
-    def is_dashboard_loaded(self):
-        # TODO: Parametrize locators in separate locator files
-        selectors = [
-            (AppiumBy.ACCESSIBILITY_ID, 'My courses'),
-            (AppiumBy.ACCESSIBILITY_ID, 'Paid'),
-            (AppiumBy.ACCESSIBILITY_ID, 'Free'),
-            (AppiumBy.ANDROID_UIAUTOMATOR, 'new UiSelector().text("You haven’t started any courses yet.")')
-        ]
-        try:
-            self.wait.until(EC.presence_of_element_located(selectors[0]))
-
-            if not are_elements_displayed(self.driver, selectors):
-                pytest.fail("User dashboard was not loaded! Login failed!")
-        except TimeoutException:
-            print(AssertionError("User dashboard was not loaded (or failed to load in time)! Login failed!"))
-            raise

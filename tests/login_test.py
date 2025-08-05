@@ -1,4 +1,5 @@
 from pages.login_page import LoginPage
+from pages.dashboard_page import DashboardPage
 import pytest
 
 
@@ -6,6 +7,7 @@ import pytest
 def test_login(driver, email, password, expect_error):
     # Initialize LoginPage POM
     login_page = LoginPage(driver)
+    dashboard_page = DashboardPage(driver)
 
     # Type in Email, Password & proceed with Login
     login_page.type_email(email)
@@ -17,4 +19,4 @@ def test_login(driver, email, password, expect_error):
 
     if not expect_error:
         # If we successfully log in, check if we landed on dashboard correctly
-        login_page.is_dashboard_loaded()
+        dashboard_page.is_dashboard_loaded()

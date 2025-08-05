@@ -9,12 +9,13 @@ import pytest
 
 @pytest.fixture
 def driver():
+    app_package = "com.mentortools.academy"
     # TODO: Wonder how many parameters we will have, based on that we should decide if we want to set those up as ENV variables or store them in configuration file
     # Clear app data before each test to ensure clean test separation
-    os.system("adb shell pm clear com.mentortools.academy")
+    os.system(f"adb shell pm clear {app_package}")
 
     # Grant notifications permissions, so we are not bothered during testing with prompts
-    os.system(f"adb shell pm grant com.mentortools.academy android.permission.POST_NOTIFICATIONS")
+    os.system(f"adb shell pm grant {app_package} android.permission.POST_NOTIFICATIONS")
 
     driver = create_driver()
     yield driver
